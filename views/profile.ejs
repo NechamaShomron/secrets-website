@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <i class="fas fa-key fa-6x"></i>
+    <h1 class="display-3">My Secrets:</h1>
+    <h2>Check to Delete</h2>
+    <%for(let i=0; i<user.secrets.length; i++){ %>
+      <form class="" action="/delete" method="post">
+      <p class="secret-text"><%=user.secrets[i]%>
+        <input type="checkbox" name="checkbox" value="<%=i%>" onChange="this.form.submit()">
+      </p>
+      </form>
+    <%}%>
+      <hr>
+
+    <a class="btn btn-light btn-lg" href="/logout" role="button">Log Out</a>
+    <a class="btn btn-dark btn-lg" href="/submit" role="button">Submit a Secret</a>
+    <a class="btn btn-secondary btn-lg" href="/secrets" role="button">All Secrets</a>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
